@@ -1,0 +1,11 @@
+FROM python:3.11-slim
+
+WORKDIR /processor
+
+COPY processor/requirements.txt .
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY ./processor ./processor
+
+CMD ["python", "processor/main.py"]
